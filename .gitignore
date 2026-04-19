@@ -1,0 +1,43 @@
+# 1. Python virtual muhiti
+.venv/
+venv/
+env/
+ENV/
+bin/
+lib/
+include/
+
+# 2. Django va Python kesh fayllari
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 3. MAXFIYAT (Buni albatta yashirish kerak!)
+.env
+db.sqlite3
+
+# 4. Media va Static (Lokal fayllar)
+media/
+static_cdn/
+media_cdn/
+
+# 5. IDE sozlamalari (PyCharm, VS Code)
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# 6. OpenClaw va Playwright kesh/dalillari
+OpenClaw/.pi/
+OpenClaw/.agents/
+OpenClaw/node_modules/
+agent_evidence.png
+error_debug.png
+.python-version
+
+# 7. Tizim fayllari
+.DS_Store
+Thumbs.db

@@ -1,0 +1,95 @@
+{% extends 'users/base.html' %}
+
+{% block content %}
+<style>
+    body { background-color: #fff5f7 !important; font-family: 'Poppins', sans-serif; }
+
+    .leader-container {
+        max-width: 500px;
+        margin: 50px auto;
+        background: white;
+        padding: 40px;
+        border-radius: 30px;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+        border: 1px solid #ffeef2;
+        text-align: center;
+    }
+
+    h2 { color: #444; margin-bottom: 30px; font-weight: 700; }
+
+    .user-card {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        background: #fdfdfd;
+        border-radius: 18px;
+        margin-bottom: 12px;
+        border: 1px solid #f7f7f7;
+        transition: 0.3s;
+    }
+
+    .user-card:hover {
+        transform: scale(1.03);
+        border-color: #a29bfe;
+        background: white;
+    }
+
+    .rank-circle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #eee;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-right: 10px;
+        font-size: 0.9rem;
+    }
+
+    .r-1 { background: #ffeaa7; color: #d6a01d; }
+    .r-2 { background: #dfe6e9; color: #636e72; }
+    .r-3 { background: #fab1a0; color: #d35400; }
+
+    .score-tag {
+        background: #e3fcef;
+        color: #27ae60;
+        padding: 5px 15px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 0.9rem;
+    }
+
+    .btn-back {
+        display: inline-block;
+        margin-top: 25px;
+        color: #a29bfe;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+</style>
+
+<div class="leader-container">
+    <h2>🏆 Leaderboard</h2>
+
+    {% if users %}
+        {% for u in users %}
+        <div class="user-card">
+            <div style="display: flex; align-items: center;">
+                <span class="rank-circle {% if forloop.counter == 1 %}r-1{% elif forloop.counter == 2 %}r-2{% elif forloop.counter == 3 %}r-3{% endif %}">
+                    {{ forloop.counter }}
+                </span>
+                <span style="font-weight: 600; color: #555;">{{ u.username }}</span>
+            </div>
+            <span class="score-tag">{{ u.score|default:0 }} Ball</span>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p style="color: #999;">No one has scored yet.</p>
+    {% endif %}
+
+    <a href="{% url 'my_habits' %}" class="btn-back">← Back to Dashboard</a>
+</div>
+{% endblock %}

@@ -1,0 +1,142 @@
+/* Umumiy sozlamalar */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f4f8; /* Juda yumshoq kulrang-havorang */
+    color: #4a4a4a;
+}
+
+.main-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Dashboard Konteyneri */
+.dashboard-container {
+    width: 100%;
+    max-width: 1000px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px); /* Orqasini xira qilish (Glassmorphism) */
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+h1 {
+    font-weight: 600;
+    color: #2d3436;
+    margin-bottom: 10px;
+}
+
+.eco-score {
+    font-size: 1.2rem;
+    color: #6c5ce7;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+/* Tugmalar (Add Habit, Leaderboard) */
+.top-actions {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-primary {
+    background: #a29bfe;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 0.9rem;
+}
+
+.btn-primary:hover {
+    background: #6c5ce7;
+    transform: translateY(-2px);
+}
+
+/* Habit Kartochkalari Grid */
+.habit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* Har bir habit kartochkasi */
+.habit-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 25px;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+    transition: 0.3s;
+    border: 1px solid rgba(0,0,0,0.03);
+    text-align: left;
+}
+
+.habit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.habit-card h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.1rem;
+    color: #2d3436;
+    word-wrap: break-word;
+}
+
+/* Done/Undo linki */
+.status-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+}
+
+.status-link.done { color: #00b894; }
+.status-link.undo { color: #fab1a0; }
+
+/* Pastki Edit/Delete linklari */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #f1f1f1;
+    padding-top: 15px;
+}
+
+.edit-link {
+    text-decoration: none;
+    color: #b2bec3;
+    font-size: 0.85rem;
+}
+
+.delete-link {
+    text-decoration: none;
+    color: #ff7675;
+    font-size: 0.85rem;
+}
+
+.edit-link:hover, .delete-link:hover {
+    text-decoration: underline;
+}
+
+
+/* Leaderboard tugmasini mana bu rangga almashtiring */
+.btn-lead {
+    background: #a29bfe; /* Yumshoq lavanda rangi */
+    color: white;
+}
+
+/* Agar yanada ochroq xohlasangiz: */
+/* .btn-lead { background: #d6bcfa; color: #553c9a; } */
