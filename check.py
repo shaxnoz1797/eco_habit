@@ -1,18 +1,19 @@
 import streamlit as st
-from OpenClaw.eco_agent import client
 
-api_key=st.secrets["GEMINI_API_KEY"]
+from eco_agent import client
 
+st.title("Loyiha holatini tekshirish")
 
 try:
-
-    response = client.models.generate_content(
-        model="gemini-flash-lite-latest",
+    # MUHIM: .models so'zini olib tashladik, chunki client allaqachon model hisoblanadi
+    response = client.generate_content(
         contents="Salom, loyihani tugatishimga yordam ber!"
     )
 
-    print("✅ MUAMMO HAL BO'LDI!")
-    print(response.text)
+    st.success("✅ MUAMMO HAL BO'LDI!")
+    st.write("AI javobi:")
+    st.write(response.text)
+
 except Exception as e:
-    print("❌ BU MODEL HAM LIMIT: 0 BERDI:")
-    print(e)
+    st.error("❌ Xatolik yuz berdi:")
+    st.write(e)
