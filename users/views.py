@@ -28,10 +28,10 @@ def api_update_habit(request, pk):
 
 
 
-# 1. Dashboard (Asosiy sahifa)
+# 1. Dashboard
 def my_habits(request):
     habits = Habit.objects.filter(user=request.user)
-    # Eco Score hisoblash: Har bir Done uchun 10 ball
+
     done_count = habits.filter(is_done=True).count()
     eco_score = done_count * 10
 
@@ -63,7 +63,7 @@ def edit_habit(request, pk):
 
 
 
-# 4. Delete Habit (O'chirish)
+# 4. Delete Habit
 def delete_habit(request, pk):
     habit = get_object_or_404(Habit, pk=pk, user=request.user)
     habit.delete()
@@ -95,7 +95,7 @@ def leaderboard(request):
         done_count=Count('habit', filter=Q(habit__is_done=True))
     ).order_by('-done_count')
 
-    # Har bir user uchun scoreni hisoblaymiz (10 ga ko'paytirib)
+
     for u in users_list:
         u.score = u.done_count * 10
 

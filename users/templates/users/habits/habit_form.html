@@ -1,9 +1,8 @@
 {% extends 'users/base.html' %}
 
-
 {% block content %}
 <style>
-    /* Sahifa foni */
+
     body {
         background-color: #fff5f7 !important;
         font-family: 'Poppins', sans-serif;
@@ -40,7 +39,7 @@
         background: #fcfcfc;
         font-size: 1rem;
         transition: 0.3s;
-        box-sizing: border-box; /* Padding bilan kenglikni to'g'rilaydi */
+        box-sizing: border-box;
         margin-bottom: 20px;
     }
 
@@ -91,7 +90,7 @@
         <input type="text" name="name" value="{{ habit.name }}" placeholder="Typing habits name..." required>
 
         <button type="submit" class="btn-submit">Save ✨</button>
-        <!-- To'g'ri qator -->
+
         <a href="{% url 'my_habits' %}" class="cancel-link">Cancel</a>
     </form>
 </div>
