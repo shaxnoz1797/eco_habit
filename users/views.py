@@ -2,10 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Habit
 from django.contrib.auth import get_user_model
 from django.db.models import Count, Q
-from django.db.models import F, ExpressionWrapper, IntegerField
+
 
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import AllowAny # Test uchun hozircha ochiq qoldiramiz
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
 
@@ -15,7 +15,7 @@ def api_update_habit(request, pk):
     try:
         habit = Habit.objects.get(pk=pk)
         habit.is_done = True
-        # Agent yuborgan xulosani saqlaymiz
+
         description = request.data.get('description')
         if description:
             habit.description = description
@@ -24,6 +24,7 @@ def api_update_habit(request, pk):
         return Response({"status": "success"})
     except Habit.DoesNotExist:
         return Response({"status": "error"}, status=404)
+
 
 
 
@@ -81,47 +82,15 @@ def toggle_habit(request, pk):
     return redirect('my_habits')
 
 
-# def progress(request):
-#     habits = Habit.objects.filter(user=request.user)
-#     done_count = habits.filter(is_done=True).count()
-#     total_count = habits.count()
-#
-#     # Foizni hisoblaymiz
-#     percentage = (done_count / total_count * 100) if total_count > 0 else 0
-#
-#     return render(request, 'users/progress.html', {
-#         'done_count': done_count,
-#         'total_count': total_count,
-#         'percentage': int(percentage)
-#     })
-
-
-
-# def register(request):
-#     form = UserCreationForm()
-#
-#     if request.method == "POST":
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('login')
-#
-#     return render(request, 'registration/register.html', {'form': form})
-
-
-
-
-
-
 
 # 6. Leaderboard (Reyting)
 User = get_user_model()
 
 
-# Leaderboard funksiyasini yangilaymiz
+
 def leaderboard(request):
     User = get_user_model()
-    # Foydalanuvchilarni olish va har biriga 'score' maydonini qo'shish
+
     users_list = User.objects.annotate(
         done_count=Count('habit', filter=Q(habit__is_done=True))
     ).order_by('-done_count')

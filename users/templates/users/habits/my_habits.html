@@ -2,7 +2,7 @@
 
 {% block content %}
 <style>
-    /* Umumiy fon - Juda mayin pushti */
+
     body {
         background-color: #fff5f7;
         margin: 0;
@@ -33,7 +33,7 @@
         font-weight: 600;
     }
 
-    /* TEPADAGI TUGMALAR */
+
     .top-actions {
         display: flex;
         justify-content: center;
@@ -54,10 +54,10 @@
         font-size: 0.95rem;
     }
 
-    /* Add Habit - Yumshoq havorang */
+
     .btn-add { background: #74c0fc; }
 
-    /* Leaderboard - Yumshoq lavanda (Siz so'ragandek pastroq rang) */
+
     .btn-lead { background: #a29bfe; }
 
     .btn-main:hover {
@@ -70,7 +70,7 @@
         transform: translateY(1px);
     }
 
-    /* HABIT DIVLARI - Ixcham va chiroyli */
+
     .habit-wrapper {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -88,7 +88,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        min-height: 150px; /* Balandligi kichraytirildi */
+        min-height: 150px;
         transition: 0.3s;
     }
 
@@ -105,7 +105,7 @@
         margin-bottom: 12px;
     }
 
-    /* Done/Undo Tugmasi */
+
     .status-box { text-align: center; }
 
     .status-btn {
@@ -147,16 +147,16 @@
         color: #fff;
     }
 
-        /* Delete tugmasi stili */
+
 .btn-delete {
-    background-color: #fff1f0 !important; /* Och qizil fon */
-    color: #ff4d4f !important; /* Qizil matn */
+    background-color: #fff1f0 !important;
+    color: #ff4d4f !important;
     padding: 8px 18px !important;
     border-radius: 12px !important;
     text-decoration: none !important;
     font-size: 0.85rem !important;
     font-weight: 600 !important;
-    border: 1px solid #ffa39e !important; /* Chegara */
+    border: 1px solid #ffa39e !important;
     transition: 0.3s !important;
     display: inline-block !important;
 }
@@ -171,18 +171,18 @@
 </style>
 <script>
 function confirmDelete(event, url) {
-    event.preventDefault(); // Sahifa darrov o'tib ketmasligi uchun
+    event.preventDefault();
 
     Swal.fire({
         title: 'Are you sure?',
         text: "Do you want to break this habit?",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#ff7675', // Nejniy qizil
-        cancelButtonColor: '#74c0fc',  // Nejniy havorang
+        confirmButtonColor: '#ff7675',
+        cancelButtonColor: '#74c0fc',
         confirmButtonText: 'Yes, delete it!',
         cancelButtonText: 'No, let it stay.',
-        background: '#fff5f7', // Nejniy pushti fon
+        background: '#fff5f7',
         borderRadius: '25px',
         customClass: {
             title: 'my-swal-title',
@@ -190,14 +190,14 @@ function confirmDelete(event, url) {
         }
     }).then((result) => {
         if (result.isConfirmed) {
-            window.location.href = url; // Tasdiqlasa o'chiradi
+            window.location.href = url;
         }
     })
 }
 </script>
 
 <style>
-    /* SweetAlert uchun qo'shimcha nejniy dizayn */
+
     .my-swal-title {
         font-family: 'Poppins', sans-serif;
         color: #444;
@@ -209,7 +209,7 @@ function confirmDelete(event, url) {
 
 <div class="header-section">
     <h1>🔥 My Habits Dashboard</h1>
-    <div class="eco-score">🌱 Eco Score: 20</div>
+    <p class="eco-score">🌱 Eco Score: {{ eco_score }}</p>
 </div>
 
 <div class="top-actions">
@@ -229,7 +229,7 @@ function confirmDelete(event, url) {
                     </p>
                 {% endif %}
         <div class="status-box">
-    <!-- toggle_habit funksiyasiga habit.pk (ID) ni yuboramiz -->
+
             <a href="{% url 'toggle_habit' habit.pk %}" class="status-btn {% if habit.is_done %}undo-btn{% else %}done-btn{% endif %}">
                 {% if habit.is_done %}Undo ❌{% else %}Done ✅{% endif %}
             </a>

@@ -41,3 +41,5 @@ error_debug.png
 # 7. Tizim fayllari
 .DS_Store
 Thumbs.db
+
+.streamlit/

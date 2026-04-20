@@ -1,4 +1,4 @@
-/* Umumiy sozlamalar */
+
 body {
     margin: 0;
     padding: 0;
@@ -15,7 +15,7 @@ body {
     padding: 20px;
 }
 
-/* Dashboard Konteyneri */
+
 .dashboard-container {
     width: 100%;
     max-width: 1000px;
@@ -40,7 +40,7 @@ h1 {
     font-weight: 400;
 }
 
-/* Tugmalar (Add Habit, Leaderboard) */
+
 .top-actions {
     margin-bottom: 30px;
     display: flex;
@@ -63,14 +63,14 @@ h1 {
     transform: translateY(-2px);
 }
 
-/* Habit Kartochkalari Grid */
+
 .habit-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 20px;
 }
 
-/* Har bir habit kartochkasi */
+
 .habit-card {
     background: #ffffff;
     border-radius: 20px;
@@ -94,7 +94,7 @@ h1 {
     word-wrap: break-word;
 }
 
-/* Done/Undo linki */
+
 .status-link {
     display: inline-flex;
     align-items: center;
@@ -107,7 +107,7 @@ h1 {
 .status-link.done { color: #00b894; }
 .status-link.undo { color: #fab1a0; }
 
-/* Pastki Edit/Delete linklari */
+
 .card-footer {
     display: flex;
     justify-content: space-between;
@@ -132,11 +132,9 @@ h1 {
 }
 
 
-/* Leaderboard tugmasini mana bu rangga almashtiring */
+
 .btn-lead {
-    background: #a29bfe; /* Yumshoq lavanda rangi */
+    background: #a29bfe;
     color: white;
 }
 
-/* Agar yanada ochroq xohlasangiz: */
-/* .btn-lead { background: #d6bcfa; color: #553c9a; } */

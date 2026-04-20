@@ -15,7 +15,7 @@ django.setup()
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher()
 
-# handlerlarni ulash
+
 dp.message.register(start_handler, Command("start"))
 dp.message.register(help_handler, Command("help"))
 

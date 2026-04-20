@@ -11,8 +11,5 @@ urlpatterns = [
 
     path('api/habit/<int:pk>/done/', views.api_update_habit, name='api_done'),
 
-    # path("progress/", views.progress, name="progress"),
-
-    # path('register/', views.register, name='register'),
 
 ]
