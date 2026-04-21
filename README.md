@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/4a2ecb57-ee5d-49cd-aed5-8dd7866b9805
+
 # 🌍 EcoHabit: AI-Agentic Sustainable Habit Tracker
 
 EcoHabit is a next-generation habit tracking dashboard that integrates **OpenClaw AI Agents** to verify and analyze sustainable actions. Built for the **OpenClaw Challenge**.
