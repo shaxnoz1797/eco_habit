@@ -19,3 +19,17 @@ EcoHabit is a next-generation habit tracking dashboard that integrates **OpenCla
 - **Agent Framework:** OpenClaw
 - **Automation:** Playwright (Chromium)
 - **Styling:** Custom CSS (Minimalist/Soft UI)
+
+# 🌿 EcoHabit AI Agent
+Built for OpenClaw Challenge & Earth Day 2024.
+
+## 🚀 About the Project
+EcoHabit is an AI-powered agent designed to help users transition to a sustainable lifestyle. It analyzes daily habits and uses **Google Gemini 1.5 Flash** to provide eco-friendly alternatives and actionable insights.
+
+## 🛠 Tech Stack
+- **AI Model:** Google Gemini 1.5 Flash (via Google AI Studio)
+- **Framework:** Streamlit
+- **Agent Logic:** OpenClaw-inspired goal-oriented reasoning
+
+## 🌍 Why it matters?
+By providing real-time ecological analysis, this agent encourages users to reduce their carbon footprint and choose greener alternatives for everyday products.
