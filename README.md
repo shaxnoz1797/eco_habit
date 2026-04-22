@@ -1,10 +1,12 @@
 
-
-https://github.com/user-attachments/assets/4a2ecb57-ee5d-49cd-aed5-8dd7866b9805
-
 # 🌍 EcoHabit: AI-Agentic Sustainable Habit Tracker
 
-EcoHabit is a next-generation habit tracking dashboard that integrates **OpenClaw AI Agents** to verify and analyze sustainable actions. Built for the **OpenClaw Challenge**.
+EcoHabit is a next-generation habit tracking dashboard that integrates **OpenClaw AI Agents** to verify and analyze sustainable actions. Built for the **OpenClaw Challenge & 100 Days of Solana**.
+
+## 📺 Project Demo Video
+[![EcoHabit Demo Video](https://img.youtube.com/vi/lq6lXVQx-5I/0.jpg)](https://www.youtube.com/watch?v=lq6lXVQx-5I)
+
+*Click the image above to watch the demo on YouTube.*
 
 ## ✨ Features
 - **AI-Driven Verification:** Uses an OpenClaw agent to browse the web and confirm eco-friendly facts.
@@ -18,22 +20,14 @@ EcoHabit is a next-generation habit tracking dashboard that integrates **OpenCla
 3. **The Bridge:** A custom REST API that allows the Agent to securely update the Dashboard status.
 
 ## 🛠️ Tech Stack
-- **Framework:** Django 5.x
-- **AI Miyasi:** Google Gemini API
+- **AI Model:** Google Gemini 1.5 Flash (via Google AI Studio)
+- **Frameworks:** Django 5.x & Streamlit
 - **Agent Framework:** OpenClaw
 - **Automation:** Playwright (Chromium)
+- **Blockchain:** Solana (100 Days of Solana Challenge)
 - **Styling:** Custom CSS (Minimalist/Soft UI)
 
-# 🌿 EcoHabit AI Agent
-Built for OpenClaw Challenge & Earth Day 2024.
-
-## 🚀 About the Project
-EcoHabit is an AI-powered agent designed to help users transition to a sustainable lifestyle. It analyzes daily habits and uses **Google Gemini 1.5 Flash** to provide eco-friendly alternatives and actionable insights.
-
-## 🛠 Tech Stack
-- **AI Model:** Google Gemini 1.5 Flash (via Google AI Studio)
-- **Framework:** Streamlit
-- **Agent Logic:** OpenClaw-inspired goal-oriented reasoning
-
-## 🌍 Why it matters?
-By providing real-time ecological analysis, this agent encourages users to reduce their carbon footprint and choose greener alternatives for everyday products.
+## 🔧 Installation & Setup
+1. **Clone the repo:**
+   ```bash
+   git clone https://github.com/shaxnoz1797/eco_habit.git
