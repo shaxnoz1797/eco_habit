@@ -35,31 +35,10 @@ except Exception as e:
     st.error(f"Modelni yuklashda xato: {e}")
 
 
-# 3. INTERFEYS
-# st.title("🤖 EcoHabit To'g'rilangan Bot")
-
-# user_input = st.text_input("Savol yozing:")
-
-# if st.button("Yuborish"):
-#     if user_input:
-#         try:
-#
-#
-#             response = model.generate_content(user_input)
-#             st.write("Javob:", response.text)
-#         except Exception as e:
-#             st.error(f"Xatolik yuz berdi: {e}")
-#             st.info("Agar xato 429 bo'lsa, demak kodingiz hali ham eski modelni qidiryapti.")
-
-
-
-
 # --- 3. LOTTIE FUNKSIYASI ---
-
-
 def load_lottieurl(url: str):
     try:
-        r = requests.get(url, timeout=5)         # Timeout qo'shdik
+        r = requests.get(url, timeout=5)         
         time.sleep(12)
         return r.json() if r.status_code == 200 else None
     except:
@@ -207,8 +186,7 @@ elif menu == "Energiya Kalkulyatori":
 
 
 # C) AI AGENT (ASOSIY QISM)
-# C) AI AGENT (ASOSIY QISM)
-# C) AI AGENT (ASOSIY QISM)
+
 elif menu == "AI Agent bilan suhbat":
     st.title("🤖 EcoHabit Aqlli Ekspert")
 
@@ -234,11 +212,10 @@ elif menu == "AI Agent bilan suhbat":
 
         with st.chat_message("assistant"):
             try:
-                # --- TO'G'RI MODELNI AVTOMATIK TANLASH ---
                 available_models = [m.name for m in genai.list_models() if
                                     'generateContent' in m.supported_generation_methods]
 
-                # Flash 1.5 modelini qidiramiz, topilmasa ro'yxatdagi birinchisini olamiz
+                
                 selected_model_name = None
                 for m in available_models:
                     if "1.5-flash" in m:
@@ -249,7 +226,7 @@ elif menu == "AI Agent bilan suhbat":
                     selected_model_name = available_models[0]
 
                 model = genai.GenerativeModel(selected_model_name)
-                # ------------------------------------------
+            
 
                 full_query = f"{ECO_SYSTEM_PROMPT}\nFoydalanuvchi: {prompt}"
                 response = model.generate_content(full_query)
