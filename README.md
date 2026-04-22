@@ -6,8 +6,6 @@ EcoHabit is a next-generation habit tracking dashboard that integrates **OpenCla
 ## 📺 Project Demo Video
 [![EcoHabit Demo Video](https://img.youtube.com/vi/lq6lXVQx-5I/0.jpg)](https://www.youtube.com/watch?v=lq6lXVQx-5I)
 
-*Click the image above to watch the demo on YouTube.*
-
 ## ✨ Features
 - **AI-Driven Verification:** Uses an OpenClaw agent to browse the web and confirm eco-friendly facts.
 - **Intelligent Analysis:** Integrated with **Google Gemini 1.5 Flash** to provide personalized summaries of daily eco-tasks.
