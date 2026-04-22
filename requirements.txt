@@ -4,3 +4,6 @@ python-dotenv
 django>=5.0
 playwright
 requests
+solana==0.30.2
+solders==0.18.0
+streamlit-lottie

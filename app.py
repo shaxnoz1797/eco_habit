@@ -8,6 +8,9 @@ import google.generativeai as genai
 import time
 from google.api_core import exceptions
 
+import streamlit as st
+from solana_utils import log_habit_on_chain
+
 
 # --- 1.
 st.set_page_config(page_title="EcoHabit AI Agent", page_icon="🌿", layout="wide")
@@ -33,25 +36,27 @@ except Exception as e:
 
 
 # 3. INTERFEYS
-st.title("🤖 EcoHabit To'g'rilangan Bot")
+# st.title("🤖 EcoHabit To'g'rilangan Bot")
 
-user_input = st.text_input("Savol yozing:")
+# user_input = st.text_input("Savol yozing:")
 
-if st.button("Yuborish"):
-    if user_input:
-        try:
-
-
-            response = model.generate_content(user_input)
-            st.write("Javob:", response.text)
-        except Exception as e:
-            st.error(f"Xatolik yuz berdi: {e}")
-            st.info("Agar xato 429 bo'lsa, demak kodingiz hali ham eski modelni qidiryapti.")
+# if st.button("Yuborish"):
+#     if user_input:
+#         try:
+#
+#
+#             response = model.generate_content(user_input)
+#             st.write("Javob:", response.text)
+#         except Exception as e:
+#             st.error(f"Xatolik yuz berdi: {e}")
+#             st.info("Agar xato 429 bo'lsa, demak kodingiz hali ham eski modelni qidiryapti.")
 
 
 
 
 # --- 3. LOTTIE FUNKSIYASI ---
+
+
 def load_lottieurl(url: str):
     try:
         r = requests.get(url, timeout=5)         # Timeout qo'shdik
@@ -113,6 +118,17 @@ st.sidebar.info(random_tip)
 
 st.sidebar.subheader("🎯 Sizning Eco-Progressingiz")
 
+
+st.subheader("Solana Web3 Verification")
+if st.button("Verify Habit on Solana Blockchain"):
+    with st.spinner("Recording on-chain..."):
+        # Videodagi 'Plastikdan voz kechish' odatini misol qilamiz
+        result = log_habit_on_chain("Plastic-free day")
+        if result["status"] == "Success":
+            st.success(f"Verified! Tx ID: {result['transaction_id']}")
+            st.info(f"Data stored: {result['memo']}")
+        else:
+            st.error("Transaction failed")
 
 user_points = st.sidebar.slider("Bugun nechta ekologik ish qildingiz?", 0, 10, 3)
 
@@ -191,13 +207,22 @@ elif menu == "Energiya Kalkulyatori":
 
 
 # C) AI AGENT (ASOSIY QISM)
+# C) AI AGENT (ASOSIY QISM)
+# C) AI AGENT (ASOSIY QISM)
 elif menu == "AI Agent bilan suhbat":
-    # st.title("🤖 EcoHabit Aqlli Yordamchi")
+    st.title("🤖 EcoHabit Aqlli Ekspert")
+
+    ECO_SYSTEM_PROMPT = """
+    Siz EcoHabit loyihasining AI-Agentisiz. Vazifangiz:
+    1. Foydalanuvchi kiritgan odatni ekologik tahlil qilish.
+    2. Agar odat foydali bo'lsa, javobni '✅ TASDIQLANDI' deb boshlang.
+    3. Agar foydali bo'lmasa, '❌ RAD ETILDI' deb boshlang.
+    O'zbek tilida javob bering.
+    """
 
     if "messages" not in st.session_state:
         st.session_state.messages = []
 
-    # Chat tarixini chiqarish
     for msg in st.session_state.messages:
         with st.chat_message(msg["role"]):
             st.markdown(msg["content"])
@@ -209,39 +234,42 @@ elif menu == "AI Agent bilan suhbat":
 
         with st.chat_message("assistant"):
             try:
-                # 1. AKKAUNTINGIZDAGI ISHLAYDIGAN MODELLARNI RO'YXATI
-
-                available_models = [m.name for m in palmed_genai.list_models() if
+                # --- TO'G'RI MODELNI AVTOMATIK TANLASH ---
+                available_models = [m.name for m in genai.list_models() if
                                     'generateContent' in m.supported_generation_methods]
 
-                # Eng yaxshi modelni tanlash (navbat bilan)
-                target_model = None
-                for m_name in ["models/gemini-1.5-flash", "models/gemini-pro", "gemini-1.5-flash", "gemini-pro"]:
-                    if m_name in available_models:
-                        target_model = m_name
+                # Flash 1.5 modelini qidiramiz, topilmasa ro'yxatdagi birinchisini olamiz
+                selected_model_name = None
+                for m in available_models:
+                    if "1.5-flash" in m:
+                        selected_model_name = m
                         break
 
-                if not target_model:
-                    # Agar yuqoridagilar topilmasa, ro'yxatdagi birinchisini olamiz
-                    target_model = available_models[0]
+                if not selected_model_name:
+                    selected_model_name = available_models[0]
 
-                # 2. MODELNI ISHGA TUSHIRISH
-                model = palmed_genai.GenerativeModel(target_model)
+                model = genai.GenerativeModel(selected_model_name)
+                # ------------------------------------------
 
-                # 3. JAVOB OLISH
-                response = model.generate_content(
-                    f"Siz EcoHabit loyihasining ekologiya mutaxassisiz. O'zbek tilida javob bering. Savol: {prompt}"
-                )
-
+                full_query = f"{ECO_SYSTEM_PROMPT}\nFoydalanuvchi: {prompt}"
+                response = model.generate_content(full_query)
                 full_res = response.text
+
                 st.markdown(full_res)
                 st.session_state.messages.append({"role": "assistant", "content": full_res})
-                st.caption(f"Ishlatilgan model: {target_model}")  # Qaysi model ishlaganini ko'rib turamiz
+
+                if "✅ TASDIQLANDI" in full_res:
+                    st.success("Blockchain-ga yozish imkoniyati ochildi!")
+                    # Tugmani session_state orqali boshqarish (xatolikni oldini olish uchun)
+                    if st.button("Solana Blockchain-ga muhrlash"):
+                        sol_res = log_habit_on_chain(prompt)
+                        st.success(f"Yozildi! Tx ID: {sol_res['transaction_id']}")
+                        st.balloons()
+
+                st.caption(f"Ishlayotgan model: {selected_model_name}")
 
             except Exception as e:
                 st.error(f"Xatolik yuz berdi: {str(e)}")
-                st.info("Maslahat: Internetingiz yoki API kalitingizni tekshiring.")
-
 
 
 # D) BIZ HAQIMIZDA
