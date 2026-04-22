@@ -3,15 +3,22 @@
 EcoHabit is a next-generation habit tracking dashboard that integrates **OpenClaw AI Agents** to verify and analyze sustainable actions. Built for the **OpenClaw Challenge & 100 Days of Solana**.
 
 
+
 ## 📸 Demo Screenshot
+
 ![EcoHabit AI Agent Demo](demo.png)
 
+
 *AI Agent verifying an eco-habit and enabling Solana blockchain logging.*
+
+
 
 
 📺 Project Demo Video
  https://youtu.be/lq6IXVQx-5I
  
+
+
 
 ## ✨ Features
 - **AI-Driven Verification:** Uses an OpenClaw agent to browse the web and confirm eco-friendly facts.
