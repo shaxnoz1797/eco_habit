@@ -1,5 +1,7 @@
 streamlit
 google-generativeai
 python-dotenv
+django>=5.0
+playwright
 requests
-streamlit-lottie
+s
