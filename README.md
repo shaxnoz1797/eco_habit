@@ -1,35 +1,35 @@
-# 🌍 EcoHabit: AI-Agentic Sustainable Habit Tracker
+🌍 EcoHabit: AI-Agentic Sustainable Habit Tracker
+EcoHabit is a next-generation habit tracking dashboard that integrates OpenClaw AI Agents to verify and analyze sustainable actions. Built for the OpenClaw Challenge & 100 Days of Solana.
 
-EcoHabit is a next-generation habit tracking dashboard that integrates **OpenClaw AI Agents** to verify and analyze sustainable actions. Built for the **OpenClaw Challenge**.
+📺 Project Demo Video
+EcoHabit Demo Video https://youtu.be/lq6IXVQx-5I
 
-## ✨ Features
-- **AI-Driven Verification:** Uses an OpenClaw agent to browse the web and confirm eco-friendly facts.
-- **Intelligent Analysis:** Integrated with **Google Gemini 1.5 Flash** to provide personalized summaries of daily eco-tasks.
-- **Browser Automation:** Leverages **Playwright** to mimic human-like research for verification.
-- **Gamified Dashboard:** A "Soft UI" design with an Eco-Score and Leaderboard to encourage community engagement.
+✨ Features
 
-## 🏗️ Technical Architecture
-1. **User Side:** A Django-based dashboard where users manage their habits.
-2. **Agent Side:** An OpenClaw agent running a Playwright browser.
-3. **The Bridge:** A custom REST API that allows the Agent to securely update the Dashboard status.
+AI-Driven Verification: Uses an OpenClaw agent to browse the web and confirm eco-friendly facts.
+Intelligent Analysis: Integrated with Google Gemini 1.5 Flash to provide personalized summaries of daily eco-tasks.
+Browser Automation: Leverages Playwright to mimic human-like research for verification.
+Gamified Dashboard: A "Soft UI" design with an Eco-Score and Leaderboard to encourage community engagement.
 
-## 🛠️ Tech Stack
-- **Framework:** Django 5.x
-- **AI Miyasi:** Google Gemini API
-- **Agent Framework:** OpenClaw
-- **Automation:** Playwright (Chromium)
-- **Styling:** Custom CSS (Minimalist/Soft UI)
 
-# 🌿 EcoHabit AI Agent
-Built for OpenClaw Challenge & Earth Day 2024.
+🏗️ Technical Architecture
 
-## 🚀 About the Project
-EcoHabit is an AI-powered agent designed to help users transition to a sustainable lifestyle. It analyzes daily habits and uses **Google Gemini 1.5 Flash** to provide eco-friendly alternatives and actionable insights.
+User Side: A Django-based dashboard where users manage their habits.
+Agent Side: An OpenClaw agent running a Playwright browser.
+The Bridge: A custom REST API that allows the Agent to securely update the Dashboard status.
 
-## 🛠 Tech Stack
-- **AI Model:** Google Gemini 1.5 Flash (via Google AI Studio)
-- **Framework:** Streamlit
-- **Agent Logic:** OpenClaw-inspired goal-oriented reasoning
 
-## 🌍 Why it matters?
-By providing real-time ecological analysis, this agent encourages users to reduce their carbon footprint and choose greener alternatives for everyday products.
+🛠️ Tech Stack
+
+AI Model: Google Gemini 1.5 Flash (via Google AI Studio)
+Frameworks: Django 5.x & Streamlit
+Agent Framework: OpenClaw
+Automation: Playwright (Chromium)
+Blockchain: Solana (100 Days of Solana Challenge)
+Styling: Custom CSS (Minimalist/Soft UI)
+
+
+🔧 Installation & Setup
+
+Clone the repo:
+git clone https://github.com/shaxnoz1797/eco_habit.git
